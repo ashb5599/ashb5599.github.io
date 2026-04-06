@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashwin Balaji G</title>
+<link rel="stylesheet" href="https://fonts.cdnfonts.com/css/minecraft-4">
+<style>
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --white: #ffffff;
+    --off-white: #f9f9f9;
+    --light-gray: #e4e4e4;
+    --mid-gray: #999999;
+    --dark-gray: #444444;
+    --black: #111111;
+    --mc: 'Minecraft', 'Courier New', monospace;
+    --body: Georgia, 'Times New Roman', serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 2px solid var(--black);
+    padding: 0 4rem;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: var(--mc);
+    font-size: 0.85rem;
+    color: var(--black);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; }
+
+  .nav-links a {
+    font-family: var(--mc);
+    font-size: 0.62rem;
+    color: var(--dark-gray);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover { color: var(--black); }
+
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  section {
+    padding: 5.5rem 0;
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  #hero {
+    padding-top: 9rem;
+    padding-bottom: 5.5rem;
+  }
+
+  .hero-label {
+    font-family: var(--mc);
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    margin-bottom: 1.4rem;
+  }
+
+  h1 {
+    font-family: var(--mc);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.15;
+    color: var(--black);
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-role {
+    font-family: var(--mc);
+    font-size: 0.78rem;
+    color: var(--dark-gray);
+    margin-bottom: 2rem;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--dark-gray);
+    max-width: 580px;
+    line-height: 1.85;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-contact {
+    font-family: var(--mc);
+    font-size: 0.65rem;
+    color: var(--dark-gray);
+    letter-spacing: 0.06em;
+    line-height: 2;
+  }
+
+  .hero-contact a {
+    color: var(--dark-gray);
+    text-decoration: none;
+  }
+  .hero-contact a:hover {
+    color: var(--black);
+    text-decoration: underline;
+  }
+
+  h2 {
+    font-family: var(--mc);
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    color: var(--black);
+    text-transform: uppercase;
+    margin-bottom: 2.2rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 2px solid var(--black);
+  }
+
+  .about-text {
+    font-size: 1rem;
+    color: var(--dark-gray);
+    line-height: 1.9;
+    max-width: 660px;
+  }
+  .about-text p + p { margin-top: 1.2rem; }
+
+  .skills-block { margin-bottom: 1.6rem; }
+
+  .skills-block-title {
+    font-family: var(--mc);
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 0.4rem;
+  }
+
+  .skills-list {
+    font-size: 0.95rem;
+    color: var(--dark-gray);
+  }
+
+  .project {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--light-gray);
+  }
+  .project:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .project-name {
+    font-family: var(--mc);
+    font-size: 0.78rem;
+    color: var(--black);
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.05em;
+  }
+
+  .project-meta {
+    font-family: var(--mc);
+    font-size: 0.58rem;
+    color: var(--mid-gray);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+  }
+
+  .project-desc {
+    font-size: 0.95rem;
+    color: var(--dark-gray);
+    line-height: 1.8;
+  }
+
+  .intern-title {
+    font-family: var(--mc);
+    font-size: 0.78rem;
+    color: var(--black);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.3rem;
+  }
+
+  .intern-meta {
+    font-family: var(--mc);
+    font-size: 0.58rem;
+    color: var(--mid-gray);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+
+  .intern-desc {
+    font-size: 0.95rem;
+    color: var(--dark-gray);
+    line-height: 1.8;
+  }
+
+  .edu-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .edu-entry:last-child { margin-bottom: 0; }
+
+  .edu-degree {
+    font-family: var(--mc);
+    font-size: 0.75rem;
+    color: var(--black);
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.04em;
+  }
+
+  .edu-inst {
+    font-size: 0.92rem;
+    color: var(--dark-gray);
+    margin-bottom: 0.2rem;
+  }
+
+  .edu-year {
+    font-family: var(--mc);
+    font-size: 0.58rem;
+    color: var(--mid-gray);
+    letter-spacing: 0.1em;
+  }
+
+  .edu-grade {
+    font-family: var(--mc);
+    font-size: 0.72rem;
+    color: var(--black);
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .contact-row {
+    display: flex;
+    gap: 2rem;
+    align-items: baseline;
+    font-size: 0.95rem;
+  }
+
+  .contact-label {
+    font-family: var(--mc);
+    font-size: 0.58rem;
+    color: var(--mid-gray);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    width: 75px;
+    flex-shrink: 0;
+  }
+
+  .contact-value { color: var(--dark-gray); }
+  .contact-value a { color: var(--dark-gray); text-decoration: none; }
+  .contact-value a:hover { color: var(--black); text-decoration: underline; }
+
+  footer {
+    border-top: 2px solid var(--black);
+    padding: 1.8rem 0;
+    font-family: var(--mc);
+    font-size: 0.6rem;
+    color: var(--mid-gray);
+    letter-spacing: 0.1em;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    .edu-entry { flex-direction: column; gap: 0.4rem; }
+    footer { flex-direction: column; gap: 0.4rem; }
+    .container { padding: 0 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Ashwin Balaji G</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#internship">Internship</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <section id="hero">
+    <div class="hero-label">Portfolio</div>
+    <h1>Ashwin<br>Balaji G.</h1>
+    <div class="hero-role">Information Technology Student -- KCT Coimbatore</div>
+    <p class="hero-desc">
+      First-year B.Tech student with hands-on experience in software development,
+      data analytics, and intelligent systems. I build things that work.
+    </p>
+    <div class="hero-contact">
+      <div>gashwinbalaji1@gmail.com</div>
+      <div><a href="https://github.com/ashb5599" target="_blank">github.com/ashb5599</a></div>
+      <div>Kangeyam, Tamil Nadu, India</div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <div class="about-text">
+      <p>
+        I am a first-year B.Tech Information Technology student at Kumaraguru College of Technology,
+        Coimbatore, currently holding a CGPA of 8.8. My interests lie in software development,
+        databases, and intelligent systems.
+      </p>
+      <p>
+        I completed a six-month Data Analytics internship at Cube AI Solutions, where I worked
+        with real-world datasets and built analytical pipelines. I have participated in Smart India
+        Hackathon 2025 with two independent project submissions.
+      </p>
+      <p>
+        I am open to internship opportunities and collaborative projects in software development,
+        data analytics, and applied machine learning.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+
+    <div class="skills-block">
+      <div class="skills-block-title">Programming Languages</div>
+      <div class="skills-list">Python, Java, C, C++, Go, JavaScript</div>
+    </div>
+
+    <div class="skills-block">
+      <div class="skills-block-title">Frameworks and Libraries</div>
+      <div class="skills-list">Django, Flask, React, Vue.js, TKinter, REST APIs</div>
+    </div>
+
+    <div class="skills-block">
+      <div class="skills-block-title">Databases</div>
+      <div class="skills-list">MySQL, PostgreSQL</div>
+    </div>
+
+    <div class="skills-block">
+      <div class="skills-block-title">Tools</div>
+      <div class="skills-list">Git, GitHub, VS Code, Eclipse</div>
+    </div>
+
+    <div class="skills-block">
+      <div class="skills-block-title">Concepts</div>
+      <div class="skills-list">Data Structures, Database Management Systems, Machine Learning Fundamentals, Data Analytics, Quantum Key Distribution, Computer Networking</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project">
+      <div class="project-name">Rockfall Prediction System (OPM)</div>
+      <div class="project-meta">SIH 2025 -- Django -- React -- Machine Learning</div>
+      <div class="project-desc">
+        A slope stability monitoring system built for Smart India Hackathon 2025. Uses machine
+        learning models to predict slope failures. Backend built with Django REST framework
+        and frontend with React for real-time data display.
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-name">QuMail -- Quantum Secure Email Client</div>
+      <div class="project-meta">SIH 2025 -- Go -- Vue.js -- Quantum Key Distribution</div>
+      <div class="project-desc">
+        An email client that implements Quantum Key Distribution for encryption, developed for
+        Smart India Hackathon 2025. Written in Go for the backend and Vue.js for the interface.
+        Focused on communication security against future quantum computing threats.
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-name">ProjGen -- Automated Project Generator</div>
+      <div class="project-meta">Python -- CLI Automation</div>
+      <div class="project-desc">
+        A command-line tool that scaffolds complete project directory structures based on
+        user preferences. Reduces manual setup time when starting new software projects.
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-name">HireAI -- Resume Screening Assistant</div>
+      <div class="project-meta">Flask -- Python -- Machine Learning</div>
+      <div class="project-desc">
+        A recruitment portal that automates resume analysis and candidate ranking.
+        Built with a Flask backend to parse and score resumes against job descriptions,
+        reducing manual review effort.
+      </div>
+    </div>
+  </section>
+
+  <section id="internship">
+    <h2>Internship</h2>
+    <div class="intern-title">Data Analytics Intern -- Cube AI Solutions</div>
+    <div class="intern-meta">Duration: 6 Months</div>
+    <div class="intern-desc">
+      Worked on data analytics projects involving data cleaning, processing, and visualization
+      using real-world datasets. Applied analytical techniques to derive actionable insights
+      and collaborated with the team on building data pipelines and internal reports.
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+
+    <div class="edu-entry">
+      <div>
+        <div class="edu-degree">B.Tech -- Information Technology</div>
+        <div class="edu-inst">Kumaraguru College of Technology, Coimbatore</div>
+        <div class="edu-year">2024 -- 2028 / ID: 24BIT007</div>
+      </div>
+      <div class="edu-grade">CGPA 8.8</div>
+    </div>
+
+    <div class="edu-entry">
+      <div>
+        <div class="edu-degree">Higher Secondary Education (12th Grade)</div>
+        <div class="edu-inst">Vivekanandha Academy</div>
+        <div class="edu-year">Completed 2024</div>
+      </div>
+      <div class="edu-grade">CGPA 8.2</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-list">
+      <div class="contact-row">
+        <span class="contact-label">Email</span>
+        <span class="contact-value"><a href="mailto:gashwinbalaji1@gmail.com">gashwinbalaji1@gmail.com</a></span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">GitHub</span>
+        <span class="contact-value"><a href="https://github.com/ashb5599" target="_blank">github.com/ashb5599</a></span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">LinkedIn</span>
+        <span class="contact-value">ashwin balaji g</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">Location</span>
+        <span class="contact-value">Kangeyam, Tamil Nadu, India</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Ashwin Balaji G -- KCT Coimbatore</span>
+    <span>24BIT007</span>
+  </footer>
+
+</div>
+</body>
+</html>
